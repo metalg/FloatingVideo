@@ -21,8 +21,9 @@ import android.widget.VideoView;
 
 /**
  * Created by german on 8/22/15.
+ *
  */
-public class VideoService extends Service {
+public class VideoViewService extends Service {
 
     private WindowManager wm;
     private LinearLayout ll;
@@ -45,12 +46,12 @@ public class VideoService extends Service {
         stop = new Button(getApplicationContext());
         video = new VideoView(getApplicationContext());
 
-        ViewGroup.LayoutParams btnParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ViewGroup.LayoutParams btnParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         ViewGroup.LayoutParams videoParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
 
-        video.setVideoURI(Uri.parse("android.resource://" + getPackageName().toString() + "/" + R.raw.video));
-        //video.setBackgroundColor(Color.argb(66, 0, 255, 255));
+        video.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video));
+        video.setBackgroundColor(Color.argb(66, 0, 0, 255));
         video.setLayoutParams(videoParams);
         video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override

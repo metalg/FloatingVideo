@@ -10,20 +10,30 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button b;
+    private Button videoviewButton;
+    private Button surfaceviewButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        b = (Button) findViewById(R.id.start);
-        b.setOnClickListener(new View.OnClickListener() {
+        videoviewButton = (Button) findViewById(R.id.startvideoviewsample);
+        videoviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startService(new Intent(getApplicationContext(),VideoService.class));
+                startService(new Intent(getApplicationContext(),VideoViewService.class));
             }
         });
+
+        surfaceviewButton = (Button) findViewById(R.id.startsurfacesample);
+        surfaceviewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startService(new Intent(getApplicationContext(), SurfaceViewService.class));
+            }
+        });
+
     }
 
     @Override
